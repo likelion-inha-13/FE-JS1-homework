@@ -27,6 +27,23 @@
     <li>Donut</li>
     <li>Honey</li>
   </ul>
-  <script src="script.js"></script>
+  <script>
+    const title = document.querySelector('.sliding');
+    const menu = document.querySelector('.menu');
+    const openArrow = document.querySelector('.open');
+    const closeArrow = document.querySelector('.close');
+
+    title.onclick = function() {
+      if (menu.style.display === 'none' || menu.style.display === '') {
+        menu.style.display = 'block';
+        openArrow.style.display = 'inline';
+        closeArrow.style.display = 'none';
+       } else {
+        menu.style.display = 'none';
+        openArrow.style.display = 'none';
+        closeArrow.style.display = 'inline';
+    }
+    };
+  </script>
 </body>
 </html>
