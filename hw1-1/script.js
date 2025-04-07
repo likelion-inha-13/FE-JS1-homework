@@ -1,1 +1,4 @@
-//여기에 코드를 작성해주세요!
+const elem = document.getElementById("text");
+hider.onclick = function(){
+  elem.style.display = "none";
+}

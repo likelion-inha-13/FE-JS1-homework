@@ -4,7 +4,7 @@
   <meta charset="utf-8">
     <style>
     .menu {
-      display: none;
+      display:none;
       margin:0;
     }
     .menu.active {
@@ -12,14 +12,16 @@
     }
     .open{
       display:none;
+      
     }
   </style>
+
 </head>
 <body>
 
   <div class="sliding">
-    <span class="close">▶</span> 
-    <span class="open">▼</span> 
+    <span class="close" onclick="cl_click()">▶</span> 
+    <span class="open" onclick="op_click()">▼</span> 
     <span>Sweeties (click me)!</span>
   </div>
   <ul class="menu">
