@@ -8,6 +8,10 @@
 <body>
   <input type="button" id="hider" value="Text를 숨기려면 클릭하세요." />
   <div id="text">Text</div>
-  <script src="script.js"></script>
+  <script src="script.js">
+    document.getElementById('hider').onclick = function() {
+        document.getElementById('text').hidden = true;
+      }
+  </script>
 </body>
 </html>
