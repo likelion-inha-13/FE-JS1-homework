@@ -9,18 +9,60 @@
 </head>
 <body>
 	<div class="todo-main">
-	 <h2 class="todo-title">Todo List</h2>
-		 <div class="todo-content">
-			 <div class="todo-inputbox">
-				<input type="text" 
-					   placeholder="Todo 입력"
-					   class="todo-input"/>
-				 <button class="todo-submit-btn">추가</button>
-			 </div>
-			 <div class="todo-items">
-			 </div>
+		<h2 class="todo-title">Todo List</h2>
+		<div class="todo-content">
+		  <div class="todo-inputbox">
+			<input type="text" 
+				   placeholder="Todo 입력"
+				   class="todo-input" />
+			<button class="todo-submit-btn">추가</button>
+		  </div>
+		  <div class="todo-items"></div>
 		</div>
-	</div>
-	<script src="script.js"></script>
+	  </div>
+	  
+	  <script>
+		const plusBtn = document.querySelector(".todo-submit-btn");
+		const textInput = document.querySelector(".todo-input");
+		const todoItems = document.querySelector(".todo-items");
+	  
+		plusBtn.addEventListener("click", function () {
+		  const value = textInput.value.trim();
+	  
+		  if (value === "") {
+			alert("할 일을 입력해주세요!");
+			return;
+		  }
+	  
+		  // 1. 새로운 div 요소 생성
+		  const newTodo = document.createElement("div");
+		  newTodo.classList.add("todo-item");
+		  newTodo.style.marginTop = "8px";
+	  
+		  // 2. 텍스트 노드 추가
+		  const todoText = document.createElement("span");
+		  todoText.textContent = value;
+	  
+		  // 3. 삭제 버튼 생성
+		  const deleteBtn = document.createElement("button");
+		  deleteBtn.textContent = "삭제";
+		  deleteBtn.classList.add("delete-btn");
+		  deleteBtn.style.marginLeft = "10px";
+	  
+		  // 4. 삭제 버튼 이벤트 추가
+		  deleteBtn.addEventListener("click", function () {
+			todoItems.removeChild(newTodo);
+		  });
+	  
+		  // 5. 구성요소 조립
+		  newTodo.appendChild(todoText);
+		  newTodo.appendChild(deleteBtn);
+		  todoItems.appendChild(newTodo);
+	  
+		  // 6. 입력창 초기화
+		  textInput.value = "";
+		});
+	  </script>
+	  
 </body>
 </html>

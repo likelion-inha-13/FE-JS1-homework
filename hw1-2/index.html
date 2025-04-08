@@ -27,6 +27,25 @@
     <li>Donut</li>
     <li>Honey</li>
   </ul>
-  <script src="script.js"></script>
+  <script>
+    const sliding = document.querySelector('.sliding');
+    const closebtn = document.querySelector(".close");
+    const openbtn = document.querySelector(".open");
+    const menu = document.querySelector(".menu");
+
+    function Clickfun(){
+      menu.classList.toggle('active')
+      if(menu.classList.contains('active')){//inline 이랑 none
+        openbtn.style.display = 'inline';
+        closebtn.style.display = 'none';
+      }
+      else{
+        openbtn.style.display = 'none';
+        closebtn.style.display = 'inline';
+      }
+    }
+    sliding.addEventListener('click',Clickfun);
+
+  </script>
 </body>
 </html>
