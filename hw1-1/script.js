@@ -1,1 +1,4 @@
-//여기에 코드를 작성해주세요!
+const idElement = document.getElementById('hider');
+idElement.onclick = function() {
+    document.getElementById('text').hidden =true;
+};
