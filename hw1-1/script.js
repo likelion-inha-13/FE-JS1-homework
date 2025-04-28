@@ -1,1 +1,8 @@
-//여기에 코드를 작성해주세요!
+const hider = document.getElementById('hider');
+const text = document.getElementById('text');
+
+const htmlCollection = text.children;
+
+hider.addEventListener("click",()=>{
+    text.style.display = "none"
+})
