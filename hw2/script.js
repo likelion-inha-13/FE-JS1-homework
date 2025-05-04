@@ -2,6 +2,17 @@
 //todo-submit-btn을 눌렀을 때 input에 입력된 값이 addTodo 함수에 매개변수로 넘겨주게 해주세요! 
 // input 태그 안에 값을 비우는 것도 잊지마세요! 
 
+const inputEl = document.querySelector('.todo-input');
+const submitBtn = document.querySelector('.todo-submit-btn');
+
+submitBtn.addEventListener('click', function() {
+    const text = inputEl.value.trim();
+    if (text != ''){
+        addTodo(text);
+        inputEl.value = '';
+    }
+})
+
 //Todo item 컴포넌트입니다. 
 function TodoItem({text,onComplete}){
 	const item = document.createElement("div");
@@ -13,7 +24,11 @@ function TodoItem({text,onComplete}){
     `;
 	
 	// 여기에 삭제 버튼을 클릭시 삭제 함수가 호출되게 해주세요 
-	
+	const deleteBtn = item.querySelector('.delete-btn');
+    deleteBtn.addEventListener('click', function() {
+        onComplete(item);
+    });
+
 	return item;
 }
 
@@ -23,4 +38,5 @@ const todoList = document.querySelector('.todo-items');
 function addTodo(text) {
     const newItem = TodoItem({ text, onComplete: (item) => item.remove() });
     //여기에 새로운 todo(newItem)을 todolist에 추가해보세요!
+    todoList.appendChild(newItem);
 }
